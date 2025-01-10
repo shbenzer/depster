@@ -25,6 +25,7 @@ def convert_package_lock_to_csv(input_file, output_file="dependencies.csv"):
     df['Dependencies'] = None
     df['hasDependencies'] = False
     df['Description'] = None
+    df['License'] = None
 
 
     # make and fill new columns
@@ -45,10 +46,11 @@ def convert_package_lock_to_csv(input_file, output_file="dependencies.csv"):
     #drop columns
     df.drop(labels={'dict','lockfileVersion'},axis=1,inplace=True)
 
-    # in order to populate the 'Newest Version' and 'Description' columns, we'll need to do some querys
-    ## https://registry.npmjs.org/:package will suffice
-    ### we'll also be making a LOT of requests
-    #### response.json() turns the response into a dict for us to parse
+    # in order to populate the 'Newest Version', 'License', and 'Description' columns, 
+    ## we'll need to do some querys... 
+    ### https://registry.npmjs.org/:package will suffice
+    #### we'll also be making a LOT of requests
+    ##### response.json() turns the response into a dict for us to parse
 
     header = {'Accept' : 'application/vnd.npm.install-v1+json'} ##gets an abbreviated response
 
@@ -57,6 +59,7 @@ def convert_package_lock_to_csv(input_file, output_file="dependencies.csv"):
             response = requests.get('https://registry.npmjs.org/'+index,headers=header).json()
             df['Latest Version'][index] = response['dist-tags']['latest']
             df['Description'][index] = response.get('description', 'No description available.')
+            df['License'][index] = response.get('license', 'Unknown')
         except Exception as e:
             print(f"Warning: Could not fetch version for package '{index}': {e}")
 
