@@ -12,7 +12,7 @@ This Python package converts a `package-lock.json` file into a CSV file containi
 - **Extract Key Information:** Captures current version, integrity hash, requirements, and nested dependencies.
 - **Check Dependencies:** Identifies if a package has dependencies.
 - **Fetch Latest Versions:** Uses the NPM registry API to get the most recent version of each package.
-- **Export to CSV:** Outputs the cleaned and enriched data to `package-lock.csv`.
+- **Export to CSV:** Outputs the cleaned and enriched data to `Dependencies.csv`.
 
 ---
 
