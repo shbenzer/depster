@@ -24,7 +24,6 @@ def convert_package_lock_to_csv(input_file, output_file="dependencies.csv"):
     df['Requires'] = None
     df['Dependencies'] = None
     df['hasDependencies'] = False
-    df['Deprecated'] = False
 
 
     # make and fill new columns
@@ -56,8 +55,6 @@ def convert_package_lock_to_csv(input_file, output_file="dependencies.csv"):
         try:
             response = requests.get('https://registry.npmjs.org/'+index,headers=header).json()
             df['Latest Version'][index] = response['dist-tags']['latest']
-            if 'deprecated' in response:
-                df['Deprecated'][index] = True
         except Exception as e:
             print(f"Warning: Could not fetch version for package '{index}': {e}")
 
