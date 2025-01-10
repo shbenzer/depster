@@ -54,7 +54,7 @@ Extracts and processes data from the `dependencies` dictionary:
 For each package, the script queries the NPM registry API (`https://registry.npmjs.org/:package`) to fetch the latest available version and populates the `Latest Version` column.
 
 ### 5. Export to CSV  
-The final DataFrame is saved as a CSV file named `package-lock.csv`.
+The final DataFrame is saved as a CSV file named `dependencies.csv`.
 
 ---
 
