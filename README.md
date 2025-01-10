@@ -82,9 +82,6 @@ The resulting CSV file will include the following columns:
 
 ### Performance Considerations
 - The script sends a separate request to the NPM registry for each package. This can slow down processing for projects with a large number of dependencies.
-- **Optimization Suggestions:**
-  - Use bulk queries if supported by the API.
-  - Implement caching for frequently queried packages.
 
 ### Warning Suppression
 - Warnings are suppressed in the script for a cleaner execution log.
