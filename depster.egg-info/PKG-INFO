@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: depster
-Version: 1.0.1
+Version: 1.1.0
 Summary: A tool create a detailed CSV analyzing your project's dependencies
 Home-page: https://github.com/shbenzer/depster
 Author: Simon H. Benzer
@@ -28,7 +28,7 @@ This Python package converts a `package-lock.json` file into a CSV file containi
 - **Extract Key Information:** Captures current version, integrity hash, requirements, and nested dependencies.
 - **Check Dependencies:** Identifies if a package has dependencies.
 - **Fetch Latest Versions:** Uses the NPM registry API to get the most recent version of each package.
-- **Export to CSV:** Outputs the cleaned and enriched data to `package-lock.csv`.
+- **Export to CSV:** Outputs the cleaned and enriched data to `dependencies.csv`.
 
 ---
 
@@ -98,9 +98,6 @@ The resulting CSV file will include the following columns:
 
 ### Performance Considerations
 - The script sends a separate request to the NPM registry for each package. This can slow down processing for projects with a large number of dependencies.
-- **Optimization Suggestions:**
-  - Use bulk queries if supported by the API.
-  - Implement caching for frequently queried packages.
 
 ### Warning Suppression
 - Warnings are suppressed in the script for a cleaner execution log.

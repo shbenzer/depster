@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="depster",
-    version="1.0.1",
+    version="1.1.0",
     author="Simon H. Benzer",
     author_email="SimonHBenzer@gmail.com",
     description="A tool create a detailed CSV analyzing your project's dependencies",
